@@ -9,7 +9,16 @@ export type Matrix = number[][]
  * @returns {Matrix} The sum of the two matrices.
  */
 export function matrixAdd(m1: Matrix, m2: Matrix): Matrix {
-  throw new Error('Not implemented')
+  if (m1.length !== m2.length) {
+    throw new Error('Matrix row dimensions must match.')
+  }
+  if (m1.length === 0) return []
+  for (let i = 0; i < m1.length; i++) {
+    if (m1[i]!.length !== m2[i]!.length) {
+      throw new Error('Matrix column dimensions must match.')
+    }
+  }
+  return m1.map((row, i) => row.map((val, j) => val + m2[i]![j]!))
 }
 
 /**
@@ -21,7 +30,7 @@ export function matrixAdd(m1: Matrix, m2: Matrix): Matrix {
  * @returns {Matrix} The scaled matrix.
  */
 export function scalarMatrixMultiply(c: number, m: Matrix): Matrix {
-  throw new Error('Not implemented')
+  return m.map((row) => row.map((val) => val * c))
 }
 
 /**
@@ -32,7 +41,17 @@ export function scalarMatrixMultiply(c: number, m: Matrix): Matrix {
  * @returns {Matrix} The transposed matrix.
  */
 export function transpose(m: Matrix): Matrix {
-  throw new Error('Not implemented')
+  if (m.length === 0) return []
+  const rows = m.length
+  const cols = m[0]!.length
+  const result: Matrix = Array.from({ length: cols }, () => Array(rows).fill(0))
+
+  for (let i = 0; i < rows; i++) {
+    for (let j = 0; j < cols; j++) {
+      result[j]![i] = m[i]![j]!
+    }
+  }
+  return result
 }
 
 /**
@@ -42,7 +61,12 @@ export function transpose(m: Matrix): Matrix {
  * @returns {Matrix} The identity matrix.
  */
 export function identityMatrix(n: number): Matrix {
-  throw new Error('Not implemented')
+  const result: Matrix = Array.from({ length: n }, () => Array(n).fill(0))
+
+  for (let i = 0; i < n; i++) {
+    result[i]![i] = 1
+  }
+  return result
 }
 
 if (import.meta.vitest) {

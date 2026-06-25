@@ -14,7 +14,10 @@ import {
  * @returns {number} The dot product.
  */
 export function dotProduct(v1: Vector, v2: Vector): number {
-  throw new Error('Not implemented')
+  if (v1.length !== v2.length) {
+    throw new Error('Vector dimensions must match for dot product.')
+  }
+  return v1.reduce((sum, x, i) => sum + x * v2[i]!, 0)
 }
 
 /**
@@ -26,7 +29,17 @@ export function dotProduct(v1: Vector, v2: Vector): number {
  * @returns {number} The angle in radians.
  */
 export function angleBetween(v1: Vector, v2: Vector): number {
-  throw new Error('Not implemented')
+  const mag1 = magnitude(v1)
+  const mag2 = magnitude(v2)
+
+  if (mag1 === 0 || mag2 === 0) {
+    throw new Error('Cannot calculate angle with zero vector.')
+  }
+  const dot = dotProduct(v1, v2)
+  const cosTheta = dot / (mag1 * mag2)
+  const clampedCosTheta = Math.max(-1, Math.min(1, cosTheta))
+
+  return Math.acos(clampedCosTheta)
 }
 
 /**
@@ -38,7 +51,15 @@ export function angleBetween(v1: Vector, v2: Vector): number {
  * @returns {Vector} The projected vector.
  */
 export function project(v: Vector, w: Vector): Vector {
-  throw new Error('Not implemented')
+  const dotVW = dotProduct(v, w)
+  const dotWW = dotProduct(w, w)
+
+  if (dotWW === 0) {
+    throw new Error('Cannot project onto a zero vector.')
+  }
+  const scalar = dotVW / dotWW
+
+  return scalarMultiply(scalar, w)
 }
 
 if (import.meta.vitest) {

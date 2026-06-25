@@ -1,4 +1,4 @@
-import type { Matrix } from './04_matrices.test'
+import { type Matrix } from './04_matrices.test'
 
 /**
  * Calculate the determinant of a 2x2 matrix.
@@ -7,7 +7,12 @@ import type { Matrix } from './04_matrices.test'
  * @returns {number} The determinant.
  */
 export function determinant2x2(m: Matrix): number {
-  throw new Error('Not implemented')
+  if (m.length !== 2 || m[0]!.length !== 2 || m[1]!.length !== 2) {
+    throw new Error('Determinant is only defined for 2x2 matrices.')
+  }
+  const [[a, b], [c, d]] = m as [[number, number], [number, number]]
+
+  return a * d - b * c
 }
 
 /**
@@ -18,7 +23,21 @@ export function determinant2x2(m: Matrix): number {
  * @returns {number} The determinant.
  */
 export function determinant3x3(m: Matrix): number {
-  throw new Error('Not implemented')
+  if (
+    m.length !== 3 ||
+    m[0]!.length !== 3 ||
+    m[1]!.length !== 3 ||
+    m[2]!.length !== 3
+  ) {
+    throw new Error('Determinant is only defined for 3x3 matrices.')
+  }
+  const [[a, b, c], [d, e, f], [g, h, i]] = m as [
+    [number, number, number],
+    [number, number, number],
+    [number, number, number],
+  ]
+
+  return a * (e * i - f * h) - b * (d * i - f * g) + c * (d * h - e * g)
 }
 
 /**
@@ -28,7 +47,15 @@ export function determinant3x3(m: Matrix): number {
  * @returns {boolean} True if invertible, false otherwise.
  */
 export function isInvertible(m: Matrix): boolean {
-  throw new Error('Not implemented')
+  if (m.length !== 2 && m.length !== 3) {
+    throw new Error(
+      'Invertibility check only supported for 2x2 and 3x3 matrices.',
+    )
+  }
+
+  const det = m.length === 2 ? determinant2x2(m) : determinant3x3(m)
+
+  return Math.abs(det) > 1e-9
 }
 
 if (import.meta.vitest) {

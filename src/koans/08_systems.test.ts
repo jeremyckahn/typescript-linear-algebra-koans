@@ -1,5 +1,5 @@
-import type { Matrix } from './04_matrices.test'
-import type { Vector } from './01_vectors.test'
+import { type Matrix } from './04_matrices.test'
+import { type Vector } from './01_vectors.test'
 
 /**
  * Helper function to swap two rows in a matrix (in place or returns a new matrix).
@@ -9,7 +9,12 @@ import type { Vector } from './01_vectors.test'
  * @returns {Matrix} The modified matrix.
  */
 export function rowSwap(m: Matrix, row1: number, row2: number): Matrix {
-  throw new Error('Not implemented')
+  const copy = m.map((row) => [...row])
+  const temp = copy[row1]!
+
+  copy[row1] = copy[row2]!
+  copy[row2] = temp
+  return copy
 }
 
 /**
@@ -20,7 +25,10 @@ export function rowSwap(m: Matrix, row1: number, row2: number): Matrix {
  * @returns {Matrix} The modified matrix.
  */
 export function rowScale(m: Matrix, rowIndex: number, scalar: number): Matrix {
-  throw new Error('Not implemented')
+  const copy = m.map((row) => [...row])
+
+  copy[rowIndex] = copy[rowIndex]!.map((val) => val * scalar)
+  return copy
 }
 
 /**
@@ -38,7 +46,12 @@ export function rowAdd(
   targetRowIndex: number,
   scalar: number,
 ): Matrix {
-  throw new Error('Not implemented')
+  const copy = m.map((row) => [...row])
+
+  copy[targetRowIndex] = copy[targetRowIndex]!.map(
+    (val, idx) => val + scalar * copy[sourceRowIndex]![idx]!,
+  )
+  return copy
 }
 
 /**
@@ -48,7 +61,61 @@ export function rowAdd(
  * @returns {Vector} The solution vector x.
  */
 export function gaussianElimination(a: Matrix, b: Vector): Vector {
-  throw new Error('Not implemented')
+  const N = a.length
+
+  if (N === 0) return []
+  if (b.length !== N) {
+    throw new Error(
+      'Dimensions of coefficient matrix A and constant vector b must match.',
+    )
+  }
+
+  // Create augmented matrix [A | b]
+  let aug: Matrix = []
+
+  for (let i = 0; i < N; i++) {
+    if (a[i]!.length !== N) {
+      throw new Error('Coefficient matrix A must be square.')
+    }
+    aug.push([...a[i]!, b[i]!])
+  }
+
+  for (let i = 0; i < N; i++) {
+    // Find pivot
+    let maxRow = i
+
+    for (let r = i + 1; r < N; r++) {
+      if (Math.abs(aug[r]![i]!) > Math.abs(aug[maxRow]![i]!)) {
+        maxRow = r
+      }
+    }
+
+    if (Math.abs(aug[maxRow]![i]!) < 1e-9) {
+      throw new Error('Matrix is singular or nearly singular.')
+    }
+
+    // Swap rows using the rowSwap helper
+    if (maxRow !== i) {
+      aug = rowSwap(aug, i, maxRow)
+    }
+
+    // Scale row using the rowScale helper
+    const pivotVal = aug[i]![i]!
+
+    aug = rowScale(aug, i, 1 / pivotVal)
+
+    // Eliminate elements above and below using the rowAdd helper
+    for (let r = 0; r < N; r++) {
+      if (r !== i) {
+        const factor = -aug[r]![i]!
+
+        aug = rowAdd(aug, i, r, factor)
+      }
+    }
+  }
+
+  // Extract the last column of the augmented matrix as the solution
+  return aug.map((row) => row[N]!)
 }
 
 if (import.meta.vitest) {

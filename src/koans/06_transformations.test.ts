@@ -1,5 +1,5 @@
-import type { Matrix } from './04_matrices.test'
-import type { Vector } from './01_vectors.test'
+import { type Matrix } from './04_matrices.test'
+import { type Vector } from './01_vectors.test'
 import { matrixVectorMultiply } from './05_matrix_multiplication.test'
 
 /**
@@ -9,7 +9,13 @@ import { matrixVectorMultiply } from './05_matrix_multiplication.test'
  * @returns {Matrix} The rotation matrix.
  */
 export function rotationMatrix2D(theta: number): Matrix {
-  throw new Error('Not implemented')
+  const cos = Math.cos(theta)
+  const sin = Math.sin(theta)
+
+  return [
+    [cos, -sin],
+    [sin, cos],
+  ]
 }
 
 /**
@@ -20,7 +26,10 @@ export function rotationMatrix2D(theta: number): Matrix {
  * @returns {Matrix} The scaling matrix.
  */
 export function scalingMatrix2D(sx: number, sy: number): Matrix {
-  throw new Error('Not implemented')
+  return [
+    [sx, 0],
+    [0, sy],
+  ]
 }
 
 /**
@@ -30,7 +39,7 @@ export function scalingMatrix2D(sx: number, sy: number): Matrix {
  * @returns {Vector} The transformed point.
  */
 export function applyTransformation(matrix: Matrix, vector: Vector): Vector {
-  throw new Error('Not implemented')
+  return matrixVectorMultiply(matrix, vector)
 }
 
 if (import.meta.vitest) {

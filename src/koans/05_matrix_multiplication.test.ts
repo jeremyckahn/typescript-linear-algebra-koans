@@ -1,5 +1,5 @@
-import type { Matrix } from './04_matrices.test'
-import type { Vector } from './01_vectors.test'
+import { type Matrix } from './04_matrices.test'
+import { type Vector } from './01_vectors.test'
 import { dotProduct } from './02_dot_product.test'
 
 /**
@@ -11,7 +11,18 @@ import { dotProduct } from './02_dot_product.test'
  * @returns {Vector} The resulting m-dimensional vector.
  */
 export function matrixVectorMultiply(m: Matrix, v: Vector): Vector {
-  throw new Error('Not implemented')
+  if (m.length === 0) return []
+  const cols = m[0]!.length
+
+  if (cols !== v.length) {
+    throw new Error('Matrix column count must match vector dimension.')
+  }
+  for (let i = 0; i < m.length; i++) {
+    if (m[i]!.length !== cols) {
+      throw new Error('Matrix must be rectangular.')
+    }
+  }
+  return m.map((row) => dotProduct(row, v))
 }
 
 /**
@@ -23,7 +34,30 @@ export function matrixVectorMultiply(m: Matrix, v: Vector): Vector {
  * @returns {Matrix} The resulting m x p matrix.
  */
 export function matrixMultiply(m1: Matrix, m2: Matrix): Matrix {
-  throw new Error('Not implemented')
+  if (m1.length === 0 || m2.length === 0) return []
+  const n1 = m1[0]!.length
+  const n2 = m2.length
+
+  if (n1 !== n2) {
+    throw new Error(
+      'Matrix multiplication dimension mismatch (m1 columns must match m2 rows).',
+    )
+  }
+  const m = m1.length
+  const p = m2[0]!.length
+  const result: Matrix = Array.from({ length: m }, () => Array(p).fill(0))
+
+  for (let i = 0; i < m; i++) {
+    for (let j = 0; j < p; j++) {
+      let sum = 0
+
+      for (let k = 0; k < n1; k++) {
+        sum += m1[i]![k]! * m2[k]![j]!
+      }
+      result[i]![j] = sum
+    }
+  }
+  return result
 }
 
 if (import.meta.vitest) {

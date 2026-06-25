@@ -9,7 +9,10 @@ export type Vector = number[]
  * @returns {Vector} The sum of v1 and v2.
  */
 export function vectorAdd(v1: Vector, v2: Vector): Vector {
-  throw new Error('Not implemented')
+  if (v1.length !== v2.length) {
+    throw new Error('Vector dimensions must match for addition.')
+  }
+  return v1.map((x, i) => x + v2[i]!)
 }
 
 /**
@@ -21,7 +24,10 @@ export function vectorAdd(v1: Vector, v2: Vector): Vector {
  * @returns {Vector} The difference of v1 and v2.
  */
 export function vectorSubtract(v1: Vector, v2: Vector): Vector {
-  throw new Error('Not implemented')
+  if (v1.length !== v2.length) {
+    throw new Error('Vector dimensions must match for subtraction.')
+  }
+  return v1.map((x, i) => x - v2[i]!)
 }
 
 /**
@@ -33,7 +39,7 @@ export function vectorSubtract(v1: Vector, v2: Vector): Vector {
  * @returns {Vector} The scaled vector.
  */
 export function scalarMultiply(c: number, v: Vector): Vector {
-  throw new Error('Not implemented')
+  return v.map((x) => x * c)
 }
 
 /**
@@ -44,7 +50,7 @@ export function scalarMultiply(c: number, v: Vector): Vector {
  * @returns {number} The magnitude of the vector.
  */
 export function magnitude(v: Vector): number {
-  throw new Error('Not implemented')
+  return Math.sqrt(v.reduce((sum, x) => sum + x * x, 0))
 }
 
 /**
@@ -55,7 +61,12 @@ export function magnitude(v: Vector): number {
  * @returns {Vector} The normalized vector.
  */
 export function normalize(v: Vector): Vector {
-  throw new Error('Not implemented')
+  const mag = magnitude(v)
+
+  if (mag === 0) {
+    throw new Error('Cannot normalize a zero vector.')
+  }
+  return v.map((x) => x / mag)
 }
 
 if (import.meta.vitest) {

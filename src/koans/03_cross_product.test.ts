@@ -15,7 +15,17 @@ import { dotProduct } from './02_dot_product.test'
  * @returns {Vector} The cross product.
  */
 export function crossProduct(v1: Vector, v2: Vector): Vector {
-  throw new Error('Not implemented')
+  if (v1.length !== 3 || v2.length !== 3) {
+    throw new Error('Cross product is only defined for 3D vectors.')
+  }
+  const [v1_0, v1_1, v1_2] = v1 as [number, number, number]
+  const [v2_0, v2_1, v2_2] = v2 as [number, number, number]
+
+  return [
+    v1_1 * v2_2 - v1_2 * v2_1,
+    v1_2 * v2_0 - v1_0 * v2_2,
+    v1_0 * v2_1 - v1_1 * v2_0,
+  ]
 }
 
 /**
@@ -27,7 +37,7 @@ export function crossProduct(v1: Vector, v2: Vector): Vector {
  * @returns {number} The area of the parallelogram.
  */
 export function parallelogramArea(v1: Vector, v2: Vector): number {
-  throw new Error('Not implemented')
+  return magnitude(crossProduct(v1, v2))
 }
 
 /**
@@ -44,7 +54,7 @@ export function scalarTripleProduct(
   v2: Vector,
   v3: Vector,
 ): number {
-  throw new Error('Not implemented')
+  return Math.abs(dotProduct(v1, crossProduct(v2, v3)))
 }
 
 if (import.meta.vitest) {
