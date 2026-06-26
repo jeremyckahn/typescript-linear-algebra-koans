@@ -1,5 +1,5 @@
-import type { Matrix } from './04_matrices';
-import type { Vector } from './01_vectors';
+import type { Matrix } from './04_matrices'
+import type { Vector } from './01_vectors'
 
 /**
  * Helper function to swap two rows in a matrix (in place or returns a new matrix).
@@ -9,7 +9,7 @@ import type { Vector } from './01_vectors';
  * @returns {Matrix} The modified matrix.
  */
 export function rowSwap(m: Matrix, row1: number, row2: number): Matrix {
-  throw new Error('Not implemented');
+  throw new Error('Not implemented')
 }
 
 /**
@@ -20,7 +20,7 @@ export function rowSwap(m: Matrix, row1: number, row2: number): Matrix {
  * @returns {Matrix} The modified matrix.
  */
 export function rowScale(m: Matrix, rowIndex: number, scalar: number): Matrix {
-  throw new Error('Not implemented');
+  throw new Error('Not implemented')
 }
 
 /**
@@ -32,8 +32,13 @@ export function rowScale(m: Matrix, rowIndex: number, scalar: number): Matrix {
  * @param {number} scalar - The scalar to multiply the source row by.
  * @returns {Matrix} The modified matrix.
  */
-export function rowAdd(m: Matrix, sourceRowIndex: number, targetRowIndex: number, scalar: number): Matrix {
-  throw new Error('Not implemented');
+export function rowAdd(
+  m: Matrix,
+  sourceRowIndex: number,
+  targetRowIndex: number,
+  scalar: number,
+): Matrix {
+  throw new Error('Not implemented')
 }
 
 /**
@@ -43,5 +48,5 @@ export function rowAdd(m: Matrix, sourceRowIndex: number, targetRowIndex: number
  * @returns {Vector} The solution vector x.
  */
 export function gaussianElimination(a: Matrix, b: Vector): Vector {
-  throw new Error('Not implemented');
+  throw new Error('Not implemented')
 }

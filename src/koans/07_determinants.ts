@@ -1,4 +1,4 @@
-import type { Matrix } from './04_matrices';
+import type { Matrix } from './04_matrices'
 
 /**
  * Calculate the determinant of a 2x2 matrix.
@@ -7,7 +7,7 @@ import type { Matrix } from './04_matrices';
  * @returns {number} The determinant.
  */
 export function determinant2x2(m: Matrix): number {
-  throw new Error('Not implemented');
+  throw new Error('Not implemented')
 }
 
 /**
@@ -18,7 +18,7 @@ export function determinant2x2(m: Matrix): number {
  * @returns {number} The determinant.
  */
 export function determinant3x3(m: Matrix): number {
-  throw new Error('Not implemented');
+  throw new Error('Not implemented')
 }
 
 /**
@@ -28,5 +28,5 @@ export function determinant3x3(m: Matrix): number {
  * @returns {boolean} True if invertible, false otherwise.
  */
 export function isInvertible(m: Matrix): boolean {
-  throw new Error('Not implemented');
+  throw new Error('Not implemented')
 }

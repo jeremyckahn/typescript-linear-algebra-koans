@@ -1,4 +1,4 @@
-import { type Vector, magnitude, scalarMultiply, vectorAdd } from './01_vectors';
+import { type Vector, magnitude, scalarMultiply, vectorAdd } from './01_vectors'
 
 /**
  * Calculate the sum of the products of corresponding components.
@@ -9,7 +9,7 @@ import { type Vector, magnitude, scalarMultiply, vectorAdd } from './01_vectors'
  * @returns {number} The dot product.
  */
 export function dotProduct(v1: Vector, v2: Vector): number {
-  throw new Error('Not implemented');
+  throw new Error('Not implemented')
 }
 
 /**
@@ -21,7 +21,7 @@ export function dotProduct(v1: Vector, v2: Vector): number {
  * @returns {number} The angle in radians.
  */
 export function angleBetween(v1: Vector, v2: Vector): number {
-  throw new Error('Not implemented');
+  throw new Error('Not implemented')
 }
 
 /**
@@ -33,5 +33,5 @@ export function angleBetween(v1: Vector, v2: Vector): number {
  * @returns {Vector} The projected vector.
  */
 export function project(v: Vector, w: Vector): Vector {
-  throw new Error('Not implemented');
+  throw new Error('Not implemented')
 }

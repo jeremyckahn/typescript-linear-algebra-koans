@@ -1,4 +1,4 @@
-export type Vector = number[];
+export type Vector = number[]
 
 /**
  * Add two vectors of any N-dimension.
@@ -9,7 +9,7 @@ export type Vector = number[];
  * @returns {Vector} The sum of v1 and v2.
  */
 export function vectorAdd(v1: Vector, v2: Vector): Vector {
-  throw new Error('Not implemented');
+  throw new Error('Not implemented')
 }
 
 /**
@@ -21,7 +21,7 @@ export function vectorAdd(v1: Vector, v2: Vector): Vector {
  * @returns {Vector} The difference of v1 and v2.
  */
 export function vectorSubtract(v1: Vector, v2: Vector): Vector {
-  throw new Error('Not implemented');
+  throw new Error('Not implemented')
 }
 
 /**
@@ -33,7 +33,7 @@ export function vectorSubtract(v1: Vector, v2: Vector): Vector {
  * @returns {Vector} The scaled vector.
  */
 export function scalarMultiply(c: number, v: Vector): Vector {
-  throw new Error('Not implemented');
+  throw new Error('Not implemented')
 }
 
 /**
@@ -44,7 +44,7 @@ export function scalarMultiply(c: number, v: Vector): Vector {
  * @returns {number} The magnitude of the vector.
  */
 export function magnitude(v: Vector): number {
-  throw new Error('Not implemented');
+  throw new Error('Not implemented')
 }
 
 /**
@@ -55,5 +55,5 @@ export function magnitude(v: Vector): number {
  * @returns {Vector} The normalized vector.
  */
 export function normalize(v: Vector): Vector {
-  throw new Error('Not implemented');
+  throw new Error('Not implemented')
 }

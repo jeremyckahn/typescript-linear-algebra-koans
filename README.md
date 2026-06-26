@@ -3,9 +3,10 @@
 This is an interactive learning tool where you learn linear algebra by implementing core mathematical algorithms in TypeScript to make a suite of failing unit tests pass.
 
 ## Tech Stack
- * Environment: Node.js
- * Language: TypeScript
- * Testing Framework: Vitest
+
+- Environment: Node.js
+- Language: TypeScript
+- Testing Framework: Vitest
 
 ## Installation
 

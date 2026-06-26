@@ -1,4 +1,4 @@
-export type Matrix = number[][];
+export type Matrix = number[][]
 
 /**
  * Add two matrices of the same dimensions.
@@ -9,7 +9,7 @@ export type Matrix = number[][];
  * @returns {Matrix} The sum of the two matrices.
  */
 export function matrixAdd(m1: Matrix, m2: Matrix): Matrix {
-  throw new Error('Not implemented');
+  throw new Error('Not implemented')
 }
 
 /**
@@ -21,7 +21,7 @@ export function matrixAdd(m1: Matrix, m2: Matrix): Matrix {
  * @returns {Matrix} The scaled matrix.
  */
 export function scalarMatrixMultiply(c: number, m: Matrix): Matrix {
-  throw new Error('Not implemented');
+  throw new Error('Not implemented')
 }
 
 /**
@@ -32,7 +32,7 @@ export function scalarMatrixMultiply(c: number, m: Matrix): Matrix {
  * @returns {Matrix} The transposed matrix.
  */
 export function transpose(m: Matrix): Matrix {
-  throw new Error('Not implemented');
+  throw new Error('Not implemented')
 }
 
 /**
@@ -42,5 +42,5 @@ export function transpose(m: Matrix): Matrix {
  * @returns {Matrix} The identity matrix.
  */
 export function identityMatrix(n: number): Matrix {
-  throw new Error('Not implemented');
+  throw new Error('Not implemented')
 }

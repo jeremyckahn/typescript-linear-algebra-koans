@@ -1,6 +1,6 @@
-import type { Matrix } from './04_matrices';
-import type { Vector } from './01_vectors';
-import { dotProduct } from './02_dot_product';
+import type { Matrix } from './04_matrices'
+import type { Vector } from './01_vectors'
+import { dotProduct } from './02_dot_product'
 
 /**
  * Multiply an m x n matrix by an n-dimensional vector.
@@ -11,7 +11,7 @@ import { dotProduct } from './02_dot_product';
  * @returns {Vector} The resulting m-dimensional vector.
  */
 export function matrixVectorMultiply(m: Matrix, v: Vector): Vector {
-  throw new Error('Not implemented');
+  throw new Error('Not implemented')
 }
 
 /**
@@ -23,5 +23,5 @@ export function matrixVectorMultiply(m: Matrix, v: Vector): Vector {
  * @returns {Matrix} The resulting m x p matrix.
  */
 export function matrixMultiply(m1: Matrix, m2: Matrix): Matrix {
-  throw new Error('Not implemented');
+  throw new Error('Not implemented')
 }

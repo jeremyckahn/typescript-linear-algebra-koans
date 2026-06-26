@@ -1,5 +1,5 @@
-import { type Vector, magnitude } from './01_vectors';
-import { dotProduct } from './02_dot_product';
+import { type Vector, magnitude } from './01_vectors'
+import { dotProduct } from './02_dot_product'
 
 /**
  * Calculate the cross product of two 3D vectors resulting in a new orthogonal 3D vector.
@@ -15,7 +15,7 @@ import { dotProduct } from './02_dot_product';
  * @returns {Vector} The cross product.
  */
 export function crossProduct(v1: Vector, v2: Vector): Vector {
-  throw new Error('Not implemented');
+  throw new Error('Not implemented')
 }
 
 /**
@@ -27,7 +27,7 @@ export function crossProduct(v1: Vector, v2: Vector): Vector {
  * @returns {number} The area of the parallelogram.
  */
 export function parallelogramArea(v1: Vector, v2: Vector): number {
-  throw new Error('Not implemented');
+  throw new Error('Not implemented')
 }
 
 /**
@@ -39,6 +39,10 @@ export function parallelogramArea(v1: Vector, v2: Vector): number {
  * @param {Vector} v3 - The third 3D vector.
  * @returns {number} The volume.
  */
-export function scalarTripleProduct(v1: Vector, v2: Vector, v3: Vector): number {
-  throw new Error('Not implemented');
+export function scalarTripleProduct(
+  v1: Vector,
+  v2: Vector,
+  v3: Vector,
+): number {
+  throw new Error('Not implemented')
 }
