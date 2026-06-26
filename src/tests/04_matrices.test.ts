@@ -12,6 +12,7 @@ function expectMatrixCloseTo(actual: Matrix, expected: Matrix, numDigits = 4) {
   for (let i = 0; i < actual.length; i++) {
     const actualRow = actual[i]
     const expectedRow = expected[i]
+
     if (!actualRow || !expectedRow) {
       throw new Error('Matrix row is undefined')
     }
@@ -19,6 +20,7 @@ function expectMatrixCloseTo(actual: Matrix, expected: Matrix, numDigits = 4) {
     for (let j = 0; j < actualRow.length; j++) {
       const val = actualRow[j]
       const exp = expectedRow[j]
+
       if (val === undefined || exp === undefined) {
         throw new Error('Matrix element is undefined')
       }
@@ -38,6 +40,7 @@ describe('04_matrices', () => {
         [5, 6],
         [7, 8],
       ]
+
       expectMatrixCloseTo(matrixAdd(m1, m2), [
         [6, 8],
         [10, 12],
@@ -53,6 +56,7 @@ describe('04_matrices', () => {
         [1, 2, 3],
         [4, 5, 6],
       ]
+
       expect(() => matrixAdd(m1, m2)).toThrow()
     })
   })
@@ -63,6 +67,7 @@ describe('04_matrices', () => {
         [1, 2],
         [3, 4],
       ]
+
       expectMatrixCloseTo(scalarMatrixMultiply(2, m), [
         [2, 4],
         [6, 8],
@@ -76,6 +81,7 @@ describe('04_matrices', () => {
         [1, 2],
         [3, 4],
       ]
+
       expectMatrixCloseTo(transpose(m), [
         [1, 3],
         [2, 4],
@@ -87,6 +93,7 @@ describe('04_matrices', () => {
         [1, 2, 3],
         [4, 5, 6],
       ]
+
       expectMatrixCloseTo(transpose(m), [
         [1, 4],
         [2, 5],

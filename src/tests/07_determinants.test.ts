@@ -12,6 +12,7 @@ describe('07_determinants', () => {
         [1, 2],
         [3, 4],
       ]
+
       expect(determinant2x2(m)).toBeCloseTo(-2) // 1*4 - 2*3 = 4 - 6 = -2
     })
   })
@@ -23,6 +24,7 @@ describe('07_determinants', () => {
         [0, 1, 4],
         [5, 6, 0],
       ]
+
       // det = 1*(1*0 - 4*6) - 2*(0*0 - 4*5) + 3*(0*6 - 1*5)
       // det = 1*(-24) - 2*(-20) + 3*(-5) = -24 + 40 - 15 = 1
       expect(determinant3x3(m)).toBeCloseTo(1)
@@ -35,6 +37,7 @@ describe('07_determinants', () => {
         [1, 2],
         [3, 4],
       ] // det = -2
+
       expect(isInvertible(m)).toBe(true)
     })
 
@@ -43,6 +46,7 @@ describe('07_determinants', () => {
         [1, 2],
         [2, 4],
       ] // det = 1*4 - 2*2 = 0
+
       expect(isInvertible(m)).toBe(false)
     })
 
@@ -52,6 +56,7 @@ describe('07_determinants', () => {
         [0, 1, 4],
         [5, 6, 0],
       ] // det = 1
+
       expect(isInvertible(m)).toBe(true)
     })
   })

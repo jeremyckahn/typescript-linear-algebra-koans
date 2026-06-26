@@ -13,6 +13,7 @@ function expectVectorCloseTo(actual: Vector, expected: Vector, numDigits = 4) {
   for (let i = 0; i < actual.length; i++) {
     const val = actual[i]
     const exp = expected[i]
+
     if (val === undefined || exp === undefined) {
       throw new Error('Vector element is undefined')
     }

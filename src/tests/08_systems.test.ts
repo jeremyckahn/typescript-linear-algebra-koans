@@ -13,6 +13,7 @@ function expectVectorCloseTo(actual: Vector, expected: Vector, numDigits = 4) {
   for (let i = 0; i < actual.length; i++) {
     const val = actual[i]
     const exp = expected[i]
+
     if (val === undefined || exp === undefined) {
       throw new Error('Vector element is undefined')
     }
@@ -25,6 +26,7 @@ function expectMatrixCloseTo(actual: Matrix, expected: Matrix, numDigits = 4) {
   for (let i = 0; i < actual.length; i++) {
     const actualRow = actual[i]
     const expectedRow = expected[i]
+
     if (!actualRow || !expectedRow) {
       throw new Error('Matrix row is undefined')
     }
@@ -32,6 +34,7 @@ function expectMatrixCloseTo(actual: Matrix, expected: Matrix, numDigits = 4) {
     for (let j = 0; j < actualRow.length; j++) {
       const val = actualRow[j]
       const exp = expectedRow[j]
+
       if (val === undefined || exp === undefined) {
         throw new Error('Matrix element is undefined')
       }
@@ -47,6 +50,7 @@ describe('08_systems', () => {
         [1, 2],
         [3, 4],
       ]
+
       expectMatrixCloseTo(rowSwap(m, 0, 1), [
         [3, 4],
         [1, 2],
@@ -60,6 +64,7 @@ describe('08_systems', () => {
         [1, 2],
         [3, 4],
       ]
+
       expectMatrixCloseTo(rowScale(m, 1, 2), [
         [1, 2],
         [6, 8],
@@ -73,6 +78,7 @@ describe('08_systems', () => {
         [1, 2],
         [3, 4],
       ]
+
       expectMatrixCloseTo(rowAdd(m, 0, 1, -3), [
         [1, 2],
         [0, -2],
@@ -90,6 +96,7 @@ describe('08_systems', () => {
         [1, -1],
       ]
       const b = [3, 1]
+
       expectVectorCloseTo(gaussianElimination(a, b), [2, 1])
     })
 
@@ -104,6 +111,7 @@ describe('08_systems', () => {
         [-2, 1, 2],
       ]
       const b = [8, -11, -3]
+
       expectVectorCloseTo(gaussianElimination(a, b), [2, 3, -1])
     })
   })
