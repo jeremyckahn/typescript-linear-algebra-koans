@@ -1,4 +1,4 @@
-import { Vector, magnitude } from './01_vectors';
+import { type Vector, magnitude } from './01_vectors';
 import { dotProduct } from './02_dot_product';
 
 /**

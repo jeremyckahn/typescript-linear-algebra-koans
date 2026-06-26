@@ -1,5 +1,5 @@
-import { Matrix } from './04_matrices';
-import { Vector } from './01_vectors';
+import type { Matrix } from './04_matrices';
+import type { Vector } from './01_vectors';
 
 /**
  * Helper function to swap two rows in a matrix (in place or returns a new matrix).

@@ -1,5 +1,5 @@
-import { Matrix } from './04_matrices';
-import { Vector } from './01_vectors';
+import type { Matrix } from './04_matrices';
+import type { Vector } from './01_vectors';
 import { dotProduct } from './02_dot_product';
 
 /**

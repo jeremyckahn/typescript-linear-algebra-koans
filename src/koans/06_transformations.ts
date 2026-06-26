@@ -1,5 +1,5 @@
-import { Matrix } from './04_matrices';
-import { Vector } from './01_vectors';
+import type { Matrix } from './04_matrices';
+import type { Vector } from './01_vectors';
 import { matrixVectorMultiply } from './05_matrix_multiplication';
 
 /**

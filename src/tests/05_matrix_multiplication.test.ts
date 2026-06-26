@@ -1,21 +1,36 @@
 import { describe, it, expect } from 'vitest';
 import { matrixVectorMultiply, matrixMultiply } from '../koans/05_matrix_multiplication';
-import { Matrix } from '../koans/04_matrices';
-import { Vector } from '../koans/01_vectors';
+import type { Matrix } from '../koans/04_matrices';
+import type { Vector } from '../koans/01_vectors';
 
 function expectVectorCloseTo(actual: Vector, expected: Vector, numDigits = 4) {
   expect(actual.length).toBe(expected.length);
   for (let i = 0; i < actual.length; i++) {
-    expect(actual[i]).toBeCloseTo(expected[i], numDigits);
+    const val = actual[i];
+    const exp = expected[i];
+    if (val === undefined || exp === undefined) {
+      throw new Error('Vector element is undefined');
+    }
+    expect(val).toBeCloseTo(exp, numDigits);
   }
 }
 
 function expectMatrixCloseTo(actual: Matrix, expected: Matrix, numDigits = 4) {
   expect(actual.length).toBe(expected.length);
   for (let i = 0; i < actual.length; i++) {
-    expect(actual[i].length).toBe(expected[i].length);
-    for (let j = 0; j < actual[i].length; j++) {
-      expect(actual[i][j]).toBeCloseTo(expected[i][j], numDigits);
+    const actualRow = actual[i];
+    const expectedRow = expected[i];
+    if (!actualRow || !expectedRow) {
+      throw new Error('Matrix row is undefined');
+    }
+    expect(actualRow.length).toBe(expectedRow.length);
+    for (let j = 0; j < actualRow.length; j++) {
+      const val = actualRow[j];
+      const exp = expectedRow[j];
+      if (val === undefined || exp === undefined) {
+        throw new Error('Matrix element is undefined');
+      }
+      expect(val).toBeCloseTo(exp, numDigits);
     }
   }
 }

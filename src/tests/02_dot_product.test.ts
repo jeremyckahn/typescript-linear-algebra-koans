@@ -1,11 +1,16 @@
 import { describe, it, expect } from 'vitest';
 import { dotProduct, angleBetween, project } from '../koans/02_dot_product';
-import { Vector } from '../koans/01_vectors';
+import type { Vector } from '../koans/01_vectors';
 
 function expectVectorCloseTo(actual: Vector, expected: Vector, numDigits = 4) {
   expect(actual.length).toBe(expected.length);
   for (let i = 0; i < actual.length; i++) {
-    expect(actual[i]).toBeCloseTo(expected[i], numDigits);
+    const val = actual[i];
+    const exp = expected[i];
+    if (val === undefined || exp === undefined) {
+      throw new Error('Vector element is undefined');
+    }
+    expect(val).toBeCloseTo(exp, numDigits);
   }
 }
 
