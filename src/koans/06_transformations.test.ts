@@ -1,6 +1,6 @@
-import type { Matrix } from './04_matrices'
-import type { Vector } from './01_vectors'
-import { matrixVectorMultiply } from './05_matrix_multiplication'
+import type { Matrix } from './04_matrices.test'
+import type { Vector } from './01_vectors.test'
+import { matrixVectorMultiply } from './05_matrix_multiplication.test'
 
 /**
  * Generate a 2x2 rotation matrix for a given angle theta in radians.

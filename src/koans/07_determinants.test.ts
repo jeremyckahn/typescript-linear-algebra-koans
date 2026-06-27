@@ -1,4 +1,4 @@
-import type { Matrix } from './04_matrices'
+import type { Matrix } from './04_matrices.test'
 
 /**
  * Calculate the determinant of a 2x2 matrix.

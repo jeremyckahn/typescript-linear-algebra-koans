@@ -1,5 +1,5 @@
-import { type Vector, magnitude } from './01_vectors'
-import { dotProduct } from './02_dot_product'
+import { type Vector, magnitude } from './01_vectors.test'
+import { dotProduct } from './02_dot_product.test'
 
 /**
  * Calculate the cross product of two 3D vectors resulting in a new orthogonal 3D vector.

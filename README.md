@@ -28,7 +28,7 @@ npx vitest
 
 ## How to use
 
-The project is structured into koans (modules) located in `src/koans/`. Each koan contains both the function implementations/stubs and their tests side-by-side in the same file.
+The project is structured into koans (modules) located in `src/koans/`. Each koan contains both the function implementations/stubs and their tests side-by-side in the same `*.test.ts` file.
 
 Your goal is to write the correct implementation of the koan to pass the tests in that file.
 

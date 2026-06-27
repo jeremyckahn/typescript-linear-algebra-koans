@@ -4,6 +4,7 @@ export default defineConfig({
   test: {
     globals: true,
     environment: 'node',
-    includeSource: ['src/koans/**/*.ts'],
+    include: [],
+    includeSource: ['src/koans/**/*.test.ts'],
   },
 })

@@ -1,4 +1,9 @@
-import { type Vector, magnitude, scalarMultiply, vectorAdd } from './01_vectors'
+import {
+  type Vector,
+  magnitude,
+  scalarMultiply,
+  vectorAdd,
+} from './01_vectors.test'
 
 /**
  * Calculate the sum of the products of corresponding components.

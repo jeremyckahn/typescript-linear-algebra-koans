@@ -1,6 +1,6 @@
-import type { Matrix } from './04_matrices'
-import type { Vector } from './01_vectors'
-import { dotProduct } from './02_dot_product'
+import type { Matrix } from './04_matrices.test'
+import type { Vector } from './01_vectors.test'
+import { dotProduct } from './02_dot_product.test'
 
 /**
  * Multiply an m x n matrix by an n-dimensional vector.
