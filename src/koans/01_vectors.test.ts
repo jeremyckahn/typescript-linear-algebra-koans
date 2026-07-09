@@ -29,7 +29,9 @@ export function vectorAdd(v1: Vector, v2: Vector): Vector {
  * @returns {Vector} The difference of v1 and v2.
  */
 export function vectorSubtract(v1: Vector, v2: Vector): Vector {
-  throw new Error('Not implemented')
+  assertEqualLength(v1, v2)
+
+  return v1.map((element, idx) => element - (v2[idx] ?? 0))
 }
 
 /**
