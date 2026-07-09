@@ -54,7 +54,7 @@ export function scalarMultiply(c: number, v: Vector): Vector {
  * @returns {number} The magnitude of the vector.
  */
 export function magnitude(v: Vector): number {
-  throw new Error('Not implemented')
+  return Math.sqrt(v.reduce((acc, element) => acc + element ** 2, 0))
 }
 
 /**
