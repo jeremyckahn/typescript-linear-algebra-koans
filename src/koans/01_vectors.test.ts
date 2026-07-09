@@ -65,7 +65,19 @@ export function magnitude(v: Vector): number {
  * @returns {Vector} The normalized vector.
  */
 export function normalize(v: Vector): Vector {
-  throw new Error('Not implemented')
+  const vMagnitude = magnitude(v)
+
+  const acc: number[] = []
+
+  for (const element of v) {
+    if (element === 0) {
+      throw new Error()
+    }
+
+    acc.push(element / vMagnitude)
+  }
+
+  return acc
 }
 
 if (import.meta.vitest) {
