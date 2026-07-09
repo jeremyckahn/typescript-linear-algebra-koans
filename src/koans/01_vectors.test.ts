@@ -1,5 +1,11 @@
 export type Vector = number[]
 
+function assertEqualLength(v1: Vector, v2: Vector) {
+  if (v1.length !== v2.length) {
+    throw new Error('mismatched vector sizes')
+  }
+}
+
 /**
  * Add two vectors of any N-dimension.
  * Formula: v1 + v2 = [v1_1 + v2_1, v1_2 + v2_2, ..., v1_n + v2_n]
@@ -9,7 +15,9 @@ export type Vector = number[]
  * @returns {Vector} The sum of v1 and v2.
  */
 export function vectorAdd(v1: Vector, v2: Vector): Vector {
-  throw new Error('Not implemented')
+  assertEqualLength(v1, v2)
+
+  return v1.map((element, idx) => element + (v2[idx] ?? 0))
 }
 
 /**
