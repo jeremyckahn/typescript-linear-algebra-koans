@@ -43,7 +43,7 @@ export function vectorSubtract(v1: Vector, v2: Vector): Vector {
  * @returns {Vector} The scaled vector.
  */
 export function scalarMultiply(c: number, v: Vector): Vector {
-  throw new Error('Not implemented')
+  return v.map((element) => element * c)
 }
 
 /**
