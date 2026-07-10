@@ -1,3 +1,4 @@
+import { assertEqualLength } from '../utils/assertEqualLength'
 import {
   type Vector,
   magnitude,
@@ -14,7 +15,13 @@ import {
  * @returns {number} The dot product.
  */
 export function dotProduct(v1: Vector, v2: Vector): number {
-  throw new Error('Not implemented')
+  assertEqualLength(v1, v2)
+
+  return v1.reduce((acc, element, idx) => {
+    acc += element * (v2[idx] ?? 0)
+
+    return acc
+  }, 0)
 }
 
 /**

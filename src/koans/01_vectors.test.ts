@@ -1,10 +1,6 @@
-export type Vector = number[]
+import { assertEqualLength } from '../utils/assertEqualLength'
 
-function assertEqualLength(v1: Vector, v2: Vector) {
-  if (v1.length !== v2.length) {
-    throw new Error('mismatched vector sizes')
-  }
-}
+export type Vector = number[]
 
 /**
  * Add two vectors of any N-dimension.
